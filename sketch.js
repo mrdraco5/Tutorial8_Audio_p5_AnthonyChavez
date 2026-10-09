@@ -51,9 +51,9 @@ function setup() {
   // Se establece la velocidad y el volumen iniciales del audio
   velocidad = 1.0;
   volumen = 0.5;
-  // Diámetro inicial del círculo (necesario para que lerp tenga un valor de partida)
+  // Diámetro inicial del círculo
   diametroCirculo = 20;
-  // Posición inicial del círculo (centro del lienzo) y su destino
+  // Posición inicial del círculo y su destino
   posX = windowWidth / 2;
   posY = 60;
   destinoX = posX;
@@ -78,9 +78,9 @@ function draw() {
   amplitudAudio = medidaAmplitud.getLevel();
   // Convierte la amplitud en el diámetro del círculo que se va a pintar
   let diametroObjetivo = map(amplitudAudio, 0, 0.3, 20, 120);
-  // Con lerp el diámetro se acerca poco a poco al objetivo (evita que parpadee y sea difícil de clicar)
+  // Con lerp el diámetro se acerca poco a poco al objetivo 
   diametroCirculo = lerp(diametroCirculo, diametroObjetivo, 0.1);
-  // Con lerp el centro del círculo se desplaza poco a poco hacia el destino (animación de movimiento)
+  // Con lerp el centro del círculo se desplaza poco a poco hacia el destino
   posX = lerp(posX, destinoX, 0.1);
   posY = lerp(posY, destinoY, 0.1);
   // Pinta un círculo con el diámetro variable según la amplitud del audio
